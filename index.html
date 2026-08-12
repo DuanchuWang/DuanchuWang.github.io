@@ -195,17 +195,32 @@
 
     .pub .authors strong { color: var(--ink); font-weight: 600; }
 
+    .stats {
+      font-family: "IBM Plex Sans", sans-serif;
+      font-size: 14px;
+      color: var(--muted);
+      margin: -4px 0 18px;
+    }
+
+    .stats strong { color: var(--moss); font-weight: 600; }
+
     .venue {
       display: inline-block;
       font-family: "IBM Plex Sans", sans-serif;
-      font-size: 11.5px;
-      font-weight: 500;
+      font-size: 13px;
+      font-weight: 600;
       letter-spacing: 0.04em;
-      background: var(--chip);
-      color: var(--ink);
-      padding: 2px 8px;
+      background: var(--moss);
+      color: var(--paper);
+      padding: 3px 9px;
       border-radius: 3px;
       margin-right: 8px;
+    }
+
+    .venue.preprint {
+      background: var(--chip);
+      color: var(--muted);
+      font-weight: 500;
     }
 
     .actions {
@@ -320,6 +335,11 @@
             <span class="en"><a href="https://arxiv.org/abs/2605.28241">PointQ-Bench</a> is accepted by ACM MM 2026.</span>
           </li>
           <li>
+            <span class="when">2026.08</span>
+            <span class="zh">一篇激光雷达森林结构分析论文发表于 Remote Sensing of Environment。</span>
+            <span class="en">One paper on LiDAR forest structure analysis is published in Remote Sensing of Environment.</span>
+          </li>
+          <li>
             <span class="when">2026.02</span>
             <span class="zh"><a href="https://github.com/DuanchuWang/CompetitorFormer">CompetitorFormer</a> 被 CVPR 2026 接收。</span>
             <span class="en"><a href="https://github.com/DuanchuWang/CompetitorFormer">CompetitorFormer</a> is accepted by CVPR 2026.</span>
@@ -344,12 +364,12 @@
         </h2>
         <ul class="plain-list">
           <li>
-            <span class="zh">博士研究生，<a href="https://se.xjtu.edu.cn/">西安交通大学软件学院</a>，导师 <a href="https://faculty.xjtu.edu.cn/diwang/zh_CN/index.htm">王迪</a> 教授</span>
-            <span class="en">Ph.D. student, <a href="https://se.xjtu.edu.cn/">School of Software Engineering, Xi'an Jiaotong University</a>, supervised by Prof. <a href="https://faculty.xjtu.edu.cn/diwang/zh_CN/index.htm">Di Wang</a></span>
+            <span class="zh">博士研究生，<a href="https://se.xjtu.edu.cn/">西安交通大学软件学院</a>，导师<a href="https://faculty.xjtu.edu.cn/diwang/zh_CN/index.htm">王迪副教授</a></span>
+            <span class="en">Ph.D. student, <a href="https://se.xjtu.edu.cn/">School of Software Engineering, Xi'an Jiaotong University</a>, supervised by Assoc. Prof. <a href="https://faculty.xjtu.edu.cn/diwang/zh_CN/index.htm">Di Wang</a></span>
           </li>
           <li>
-            <span class="zh">硕士，<a href="https://www.xidian.edu.cn/">西安电子科技大学</a>，导师 <a href="https://faculty.xjtu.edu.cn/diwang/zh_CN/index.htm">王迪</a> 教授</span>
-            <span class="en">M.S., <a href="https://www.xidian.edu.cn/">Xidian University</a>, supervised by Prof. <a href="https://faculty.xjtu.edu.cn/diwang/zh_CN/index.htm">Di Wang</a></span>
+            <span class="zh">硕士，<a href="https://www.xidian.edu.cn/">西安电子科技大学</a>，导师<a href="https://faculty.xjtu.edu.cn/diwang/zh_CN/index.htm">王迪副教授</a></span>
+            <span class="en">M.S., <a href="https://www.xidian.edu.cn/">Xidian University</a>, supervised by Assoc. Prof. <a href="https://faculty.xjtu.edu.cn/diwang/zh_CN/index.htm">Di Wang</a></span>
           </li>
           <li>
             <span class="zh">学士，<a href="https://www.wust.edu.cn/">武汉科技大学</a></span>
@@ -363,6 +383,10 @@
           <span class="zh">论文</span>
           <span class="en">Publications</span>
         </h2>
+        <p class="stats">
+          <span class="zh">已接收 / 发表 <strong>9</strong> 篇 · 预印本 <strong>2</strong> 篇</span>
+          <span class="en">Accepted / published: <strong>9</strong> · Preprint: <strong>2</strong></span>
+        </p>
 
         <div class="year">2026</div>
 
@@ -389,9 +413,20 @@
         </article>
 
         <article class="pub">
+          <p class="title">A synthetic data generation framework for deep learning-based LiDAR forest structure analysis</p>
+          <p class="authors">Jing Liu, <strong>Duanchu Wang</strong>, Haoran Gong, Chongyu Wang, Jihua Zhu, Di Wang</p>
+          <p class="meta"><span class="venue">RSE 2026</span>Remote Sensing of Environment</p>
+          <p class="actions">
+            <a href="https://doi.org/10.1016/j.rse.2026.115436">DOI</a>
+            <a href="https://arxiv.org/abs/2501.03637">arXiv</a>
+            <a href="https://boreal3d.github.io/">Dataset</a>
+          </p>
+        </article>
+
+        <article class="pub">
           <p class="title">VertiCue-Bench: Diagnosing Whether MLLMs Use Height Cues to Resolve 2D Ambiguity in Remote Sensing Natural Scenes</p>
           <p class="authors">Jing Huang*, <strong>Duanchu Wang</strong>*, Junjie Yang, Zihang Cheng, Cheng Li, Lin Cui, Zhouyi Wu, Di Wang</p>
-          <p class="meta"><span class="venue">arXiv</span><span class="zh">预印本</span><span class="en">preprint</span></p>
+          <p class="meta"><span class="venue preprint">arXiv 2026</span><span class="zh">预印本</span><span class="en">preprint</span></p>
           <p class="actions">
             <a href="https://arxiv.org/abs/2605.25784">arXiv</a>
             <a href="https://arxiv.org/pdf/2605.25784">PDF</a>
@@ -401,7 +436,7 @@
         <article class="pub">
           <p class="title">ForestHG-Trace: Traceable Long-Horizon Ecological Reasoning over Large-Scale Forest Scenes</p>
           <p class="authors">Zihan Cheng, <strong>Duanchu Wang</strong>, Cheng Li, Jing Huang, Huanzhao Fu, Di Wang</p>
-          <p class="meta"><span class="venue">arXiv</span><span class="zh">预印本</span><span class="en">preprint</span></p>
+          <p class="meta"><span class="venue preprint">arXiv 2026</span><span class="zh">预印本</span><span class="en">preprint</span></p>
           <p class="actions">
             <a href="https://arxiv.org/abs/2605.27590">arXiv</a>
             <a href="https://arxiv.org/pdf/2605.27590">PDF</a>
@@ -413,7 +448,7 @@
         <article class="pub">
           <p class="title">Enhancing 3D Instance Segmentation with Dense Connection Decoder and Layer-Aware Fusion</p>
           <p class="authors"><strong>Duanchu Wang</strong>, Haoran Gong, Di Wang</p>
-          <p class="meta"><span class="venue">IEEE RA-L</span>IEEE Robotics and Automation Letters</p>
+          <p class="meta"><span class="venue">IEEE RA-L 2025</span>IEEE Robotics and Automation Letters</p>
           <p class="actions">
             <a href="https://doi.org/10.1109/LRA.2025.3600142">DOI</a>
             <a href="https://github.com/DuanchuWang/Enhancing-3D-Instance-Segmentation-with-Dense-Connection-Decoder-and-Layer-Aware-Fusion">Code</a>
@@ -423,30 +458,10 @@
         <article class="pub">
           <p class="title">Optimizing Label Efficiency for Learning-Based Leaf–Wood Separation in Tree Point Clouds</p>
           <p class="authors"><strong>Duanchu Wang</strong>, Kaijie Xu, Di Wang</p>
-          <p class="meta"><span class="venue">IEEE TGRS</span>IEEE Transactions on Geoscience and Remote Sensing</p>
+          <p class="meta"><span class="venue">IEEE TGRS 2025</span>IEEE Transactions on Geoscience and Remote Sensing</p>
           <p class="actions">
             <a href="https://doi.org/10.1109/TGRS.2025.3632346">DOI</a>
             <a href="https://github.com/DuanchuWang/PCLNet">Code</a>
-          </p>
-        </article>
-
-        <article class="pub">
-          <p class="title">Advancing the Understanding of Fine-Grained 3D Forest Structures using Digital Cousins and Simulation-to-Reality: Methods and Datasets</p>
-          <p class="authors">Jing Liu, <strong>Duanchu Wang</strong>, Haoran Gong, Chongyu Wang, Jihua Zhu, Di Wang</p>
-          <p class="meta"><span class="venue">arXiv</span><span class="zh">预印本</span><span class="en">preprint</span></p>
-          <p class="actions">
-            <a href="https://arxiv.org/abs/2501.03637">arXiv</a>
-            <a href="https://arxiv.org/pdf/2501.03637">PDF</a>
-            <a href="https://boreal3d.github.io/">Dataset</a>
-          </p>
-        </article>
-
-        <article class="pub">
-          <p class="title">Grounded Chest X-Ray Reasoning: Leveraging Visual Tools to Improve Medical Multimodal LLMs</p>
-          <p class="authors"><strong>Duanchu Wang</strong>, Peng Xia, Huaxiu Yao</p>
-          <p class="meta"><span class="venue">ICDMW</span>IEEE International Conference on Data Mining Workshops</p>
-          <p class="actions">
-            <a href="https://doi.org/10.1109/ICDMW69685.2025.00391">DOI</a>
           </p>
         </article>
 
@@ -455,7 +470,7 @@
         <article class="pub">
           <p class="title">Towards the Digital Twin of Urban Forest: 3D Modeling and Parameterization of Large-Scale Urban Trees from Close-Range Laser Scanning</p>
           <p class="authors">Chen Chen, Haodong Wang, <strong>Duanchu Wang</strong>, Di Wang</p>
-          <p class="meta"><span class="venue">JAG</span>International Journal of Applied Earth Observation and Geoinformation</p>
+          <p class="meta"><span class="venue">JAG 2024</span>International Journal of Applied Earth Observation and Geoinformation</p>
           <p class="actions">
             <a href="https://doi.org/10.1016/j.jag.2024.103695">DOI</a>
           </p>
@@ -464,7 +479,7 @@
         <article class="pub">
           <p class="title">Gas Source Localization using Dueling Deep Q-Network with an Olfactory Quadruped Robot</p>
           <p class="authors">Yu He, Lei Cheng, YaDuo Pan, <strong>Duanchu Wang</strong>, YuAo Li, Han Zheng</p>
-          <p class="meta"><span class="venue">IJARS</span>International Journal of Advanced Robotic Systems</p>
+          <p class="meta"><span class="venue">IJARS 2024</span>International Journal of Advanced Robotic Systems</p>
           <p class="actions">
             <a href="https://doi.org/10.1177/17298806241255797">DOI</a>
           </p>
@@ -475,7 +490,7 @@
         <article class="pub">
           <p class="title">Multi-sensory Olfactory Quadruped Robot for Odor Source Localization</p>
           <p class="authors">Yu He, Lei Cheng, YaDuo Pan, YuAo Li, <strong>Duanchu Wang</strong>, Han Zheng</p>
-          <p class="meta"><span class="venue">IEEE CBS</span>IEEE International Conference on Cyborg and Bionic Systems</p>
+          <p class="meta"><span class="venue">IEEE CBS 2023</span>IEEE International Conference on Cyborg and Bionic Systems</p>
           <p class="actions">
             <a href="https://doi.org/10.1109/CBS55922.2023.10115389">DOI</a>
           </p>
@@ -484,15 +499,15 @@
         <article class="pub">
           <p class="title">An Active Pursuit Strategy for Autonomous Mobile Robots based on Deep Reinforcement Learning</p>
           <p class="authors">Yingnan Gao, Lei Cheng, Yu He, <strong>Duanchu Wang</strong></p>
-          <p class="meta"><span class="venue">IEEE CBS</span>IEEE International Conference on Cyborg and Bionic Systems</p>
+          <p class="meta"><span class="venue">IEEE CBS 2023</span>IEEE International Conference on Cyborg and Bionic Systems</p>
           <p class="actions">
             <a href="https://doi.org/10.1109/CBS55922.2023.10115383">DOI</a>
           </p>
         </article>
 
         <p class="note">
-          <span class="zh">* 表示共同一作。姓名加粗为本人。论文条目根据 Google 学术、DBLP 与公开预印本整理，如有遗漏请告诉我。</span>
-          <span class="en">* Equal contribution. My name is in bold. Compiled from Google Scholar, DBLP, and public preprints.</span>
+          <span class="zh">* 表示共同一作。姓名加粗为本人。</span>
+          <span class="en">* Equal contribution. My name is in bold.</span>
         </p>
       </section>
 
