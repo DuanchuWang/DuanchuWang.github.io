@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Duanchu Wang · 王端初</title>
-  <meta name="description" content="Duanchu Wang is a Ph.D. student at Xi'an Jiaotong University. Research on 3D vision, point clouds, and forest structure analysis." />
+  <meta name="description" content="Duanchu Wang is a Ph.D. student at Xi'an Jiaotong University. His research interests include 3D vision, spatial intelligence, point cloud understanding, and LiDAR-based forest structure analysis." />
   <meta name="author" content="Duanchu Wang" />
   <link rel="canonical" href="https://duanchuwang.github.io/" />
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect fill='%231e2a23' width='64' height='64' rx='12'/%3E%3Ccircle cx='18' cy='28' r='3' fill='%23c9d7c4'/%3E%3Ccircle cx='32' cy='18' r='2.4' fill='%23c9d7c4'/%3E%3Ccircle cx='46' cy='30' r='3.2' fill='%23c9d7c4'/%3E%3Ccircle cx='28' cy='42' r='2.6' fill='%23c9d7c4'/%3E%3Ccircle cx='44' cy='46' r='2.2' fill='%23c9d7c4'/%3E%3C/svg%3E" />
@@ -125,6 +125,43 @@
 
     .about p { margin: 0 0 12px; max-width: 62ch; }
 
+    .nav-sec {
+      margin-top: 22px;
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+      font-family: "IBM Plex Sans", sans-serif;
+      font-size: 13px;
+    }
+
+    .nav-sec a { color: var(--muted); text-decoration: none; }
+    .nav-sec a:hover { color: var(--moss); }
+
+    .plain-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      max-width: 68ch;
+    }
+
+    .plain-list li {
+      padding: 8px 0;
+      border-bottom: 1px dashed var(--rule);
+    }
+
+    .plain-list li:last-child { border-bottom: 0; }
+
+    .topics li { padding: 7px 0; }
+
+    .when {
+      font-family: "IBM Plex Sans", sans-serif;
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--moss);
+      margin-right: 10px;
+      white-space: nowrap;
+    }
+
     .year {
       font-family: "IBM Plex Sans", sans-serif;
       font-size: 13px;
@@ -211,26 +248,33 @@
     }
   </style>
 </head>
-<body data-lang="zh">
+<body data-lang="en">
   <div class="wrap">
     <aside>
       <img class="portrait" src="assets/avatar.jpg" alt="Portrait of Duanchu Wang" />
       <h1>Duanchu Wang</h1>
       <p class="role">
-        <span class="zh">博士生 · 西安交通大学</span>
+        <span class="zh">博士研究生 · 西安交通大学</span>
         <span class="en">Ph.D. Student · Xi'an Jiaotong University</span>
       </p>
       <nav class="links">
         <a href="mailto:wangduanchu@stu.xjtu.edu.cn">wangduanchu@stu.xjtu.edu.cn</a>
-        <a href="https://scholar.google.com/citations?user=9dgrkS0AAAAJ&hl=zh-CN">Google Scholar</a>
+        <a href="https://scholar.google.com/citations?user=9dgrkS0AAAAJ&hl=en">Google Scholar</a>
         <a href="https://github.com/DuanchuWang">GitHub</a>
         <a href="https://orcid.org/0009-0009-1470-4555">ORCID</a>
         <a href="https://www.csauthors.net/duanchu-wang/">DBLP / CSAuthors</a>
       </nav>
       <div class="lang" role="group" aria-label="Language">
-        <button type="button" data-set="zh" class="active">中文</button>
-        <button type="button" data-set="en">EN</button>
+        <button type="button" data-set="zh">中文</button>
+        <button type="button" data-set="en" class="active">EN</button>
       </div>
+      <nav class="nav-sec" aria-label="Sections">
+        <a href="#about"><span class="zh">简介</span><span class="en">About</span></a>
+        <a href="#research"><span class="zh">研究方向</span><span class="en">Research</span></a>
+        <a href="#news"><span class="zh">动态</span><span class="en">News</span></a>
+        <a href="#education"><span class="zh">教育经历</span><span class="en">Education</span></a>
+        <a href="#publications"><span class="zh">论文</span><span class="en">Publications</span></a>
+      </nav>
     </aside>
 
     <main>
@@ -240,11 +284,73 @@
           <span class="en">About</span>
         </h2>
         <p class="zh">
-          我是西安交通大学博士生，研究方向为三维视觉与空间智能，包括点云理解、三维实例分割，以及基于激光雷达的精细森林结构分析。求学路径为武汉科技大学 → 西安电子科技大学 → 西安交通大学。
+          我是<a href="https://www.xjtu.edu.cn/">西安交通大学</a>博士研究生。研究方向为三维视觉与空间智能，主要包括点云理解、三维实例分割，以及基于激光雷达的精细森林结构分析。
         </p>
         <p class="en">
-          I am a Ph.D. student at Xi'an Jiaotong University. My research focuses on 3D vision and spatial intelligence, including point cloud understanding, 3D instance segmentation, and fine-grained forest structure analysis from LiDAR. I previously studied at Wuhan University of Science and Technology and Xidian University.
+          I am a Ph.D. student at <a href="https://www.xjtu.edu.cn/">Xi'an Jiaotong University</a>. My research interests lie in 3D vision and spatial intelligence, with a particular focus on point cloud understanding, 3D instance segmentation, and LiDAR-based analysis of fine-grained forest structure.
         </p>
+      </section>
+
+      <section id="research">
+        <h2>
+          <span class="zh">研究方向</span>
+          <span class="en">Research Topics</span>
+        </h2>
+        <ul class="plain-list topics">
+          <li>
+            <span class="zh"><strong>三维视觉：</strong>点云理解、三维实例分割</span>
+            <span class="en"><strong>3D Vision:</strong> Point Cloud Understanding, 3D Instance Segmentation</span>
+          </li>
+          <li>
+            <span class="zh"><strong>空间智能：</strong>基于激光雷达的精细森林结构分析</span>
+            <span class="en"><strong>Spatial Intelligence:</strong> LiDAR-based Fine-grained Forest Structure Analysis</span>
+          </li>
+        </ul>
+      </section>
+
+      <section id="news">
+        <h2>
+          <span class="zh">动态</span>
+          <span class="en">News</span>
+        </h2>
+        <ul class="plain-list">
+          <li>
+            <span class="when">2026.02</span>
+            <span class="zh"><a href="https://github.com/DuanchuWang/CompetitorFormer">CompetitorFormer</a> 被 CVPR 2026 接收。</span>
+            <span class="en"><a href="https://github.com/DuanchuWang/CompetitorFormer">CompetitorFormer</a> is accepted by CVPR 2026.</span>
+          </li>
+          <li>
+            <span class="when">2025.10</span>
+            <span class="zh">一篇三维实例分割论文发表于 IEEE Robotics and Automation Letters。</span>
+            <span class="en">One paper on 3D instance segmentation is published in IEEE Robotics and Automation Letters.</span>
+          </li>
+          <li>
+            <span class="when">2025</span>
+            <span class="zh">一篇树点云叶木分离论文发表于 IEEE Transactions on Geoscience and Remote Sensing。</span>
+            <span class="en">One paper on leaf–wood separation in tree point clouds is published in IEEE Transactions on Geoscience and Remote Sensing.</span>
+          </li>
+        </ul>
+      </section>
+
+      <section id="education">
+        <h2>
+          <span class="zh">教育经历</span>
+          <span class="en">Education</span>
+        </h2>
+        <ul class="plain-list">
+          <li>
+            <span class="zh">博士研究生，<a href="https://se.xjtu.edu.cn/">西安交通大学软件学院</a>，导师 <a href="https://faculty.xjtu.edu.cn/diwang/zh_CN/index.htm">王迪</a> 教授</span>
+            <span class="en">Ph.D. student, <a href="https://se.xjtu.edu.cn/">School of Software Engineering, Xi'an Jiaotong University</a>, supervised by Prof. <a href="https://faculty.xjtu.edu.cn/diwang/zh_CN/index.htm">Di Wang</a></span>
+          </li>
+          <li>
+            <span class="zh">硕士，<a href="https://www.xidian.edu.cn/">西安电子科技大学</a>，导师 <a href="https://faculty.xjtu.edu.cn/diwang/zh_CN/index.htm">王迪</a> 教授</span>
+            <span class="en">M.S., <a href="https://www.xidian.edu.cn/">Xidian University</a>, supervised by Prof. <a href="https://faculty.xjtu.edu.cn/diwang/zh_CN/index.htm">Di Wang</a></span>
+          </li>
+          <li>
+            <span class="zh">学士，<a href="https://www.wust.edu.cn/">武汉科技大学</a></span>
+            <span class="en">B.S., <a href="https://www.wust.edu.cn/">Wuhan University of Science and Technology</a></span>
+          </li>
+        </ul>
       </section>
 
       <section id="publications">
@@ -254,6 +360,18 @@
         </h2>
 
         <div class="year">2026</div>
+
+        <article class="pub">
+          <p class="title">CompetitorFormer: Mitigating Query Conflicts for 3D Instance Segmentation via Competitive Strategy</p>
+          <p class="authors"><strong>Duanchu Wang</strong>*, Junjie Yang*, Haoran Gong, Jing Liu, Di Wang</p>
+          <p class="meta"><span class="venue">CVPR 2026</span>IEEE/CVF Conference on Computer Vision and Pattern Recognition</p>
+          <p class="actions">
+            <a href="https://openaccess.thecvf.com/content/CVPR2026/html/Wang_CompetitorFormer_Mitigating_Query_Conflicts_for_3D_Instance_Segmentation_via_Competitive_CVPR_2026_paper.html">Paper</a>
+            <a href="https://openaccess.thecvf.com/content/CVPR2026/papers/Wang_CompetitorFormer_Mitigating_Query_Conflicts_for_3D_Instance_Segmentation_via_Competitive_CVPR_2026_paper.pdf">PDF</a>
+            <a href="https://github.com/DuanchuWang/CompetitorFormer">Code</a>
+            <a href="https://arxiv.org/abs/2411.14179">arXiv</a>
+          </p>
+        </article>
 
         <article class="pub">
           <p class="title">PointQ-Bench: Benchmarking Diagnostic and Interpretable Point Cloud Quality Assessment</p>
@@ -330,17 +448,6 @@
         <div class="year">2024</div>
 
         <article class="pub">
-          <p class="title">CompetitorFormer: Competitor Transformer for 3D Instance Segmentation</p>
-          <p class="authors"><strong>Duanchu Wang</strong>, Jing Liu, Haoran Gong, Yinghui Quan, Di Wang</p>
-          <p class="meta"><span class="venue">arXiv</span><span class="zh">预印本</span><span class="en">preprint</span></p>
-          <p class="actions">
-            <a href="https://arxiv.org/abs/2411.14179">arXiv</a>
-            <a href="https://arxiv.org/pdf/2411.14179">PDF</a>
-            <a href="https://github.com/DuanchuWang/CompetitorFormer">Code</a>
-          </p>
-        </article>
-
-        <article class="pub">
           <p class="title">Towards the Digital Twin of Urban Forest: 3D Modeling and Parameterization of Large-Scale Urban Trees from Close-Range Laser Scanning</p>
           <p class="authors">Chen Chen, Haodong Wang, <strong>Duanchu Wang</strong>, Di Wang</p>
           <p class="meta"><span class="venue">JAG</span>International Journal of Applied Earth Observation and Geoinformation</p>
@@ -396,6 +503,7 @@
     const buttons = document.querySelectorAll(".lang button");
     const saved = localStorage.getItem("lang");
     if (saved === "en" || saved === "zh") setLang(saved);
+    else setLang("en");
 
     buttons.forEach((btn) => {
       btn.addEventListener("click", () => setLang(btn.dataset.set));

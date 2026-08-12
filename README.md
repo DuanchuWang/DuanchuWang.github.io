@@ -1,5 +1,5 @@
 # DuanchuWang.github.io
 
-Duanchu Wang 的个人学术主页（简介 + 论文）。
+Academic homepage of Duanchu Wang.
 
-发布后地址：https://duanchuwang.github.io
+Live site: https://duanchuwang.github.io
