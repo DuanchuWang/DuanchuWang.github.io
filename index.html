@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Duanchu Wang · 王端初</title>
+  <meta name="description" content="Duanchu Wang is a Ph.D. student at Xi'an Jiaotong University. Research on 3D vision, point clouds, and forest structure analysis." />
+  <meta name="author" content="Duanchu Wang" />
+  <link rel="canonical" href="https://duanchu.github.io/" />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect fill='%231e2a23' width='64' height='64' rx='12'/%3E%3Ccircle cx='18' cy='28' r='3' fill='%23c9d7c4'/%3E%3Ccircle cx='32' cy='18' r='2.4' fill='%23c9d7c4'/%3E%3Ccircle cx='46' cy='30' r='3.2' fill='%23c9d7c4'/%3E%3Ccircle cx='28' cy='42' r='2.6' fill='%23c9d7c4'/%3E%3Ccircle cx='44' cy='46' r='2.2' fill='%23c9d7c4'/%3E%3C/svg%3E" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&family=Noto+Serif+SC:wght@400;600&family=IBM+Plex+Sans:wght@400;500&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --paper: #f4efe4;
+      --paper-2: #ebe4d4;
+      --ink: #1e2a23;
+      --muted: #5b675f;
+      --moss: #2f5a42;
+      --moss-soft: #3f6e52;
+      --rule: #d4cbb8;
+      --chip: #e7dfcf;
+      --first: #8a4b1f;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      color: var(--ink);
+      background:
+        radial-gradient(1200px 500px at 10% -10%, #efe8d8 0%, transparent 55%),
+        var(--paper);
+      font-family: "Source Serif 4", "Noto Serif SC", serif;
+      font-size: 17px;
+      line-height: 1.65;
+    }
+
+    a { color: var(--moss); text-decoration-thickness: 1px; text-underline-offset: 3px; }
+    a:hover { color: var(--moss-soft); }
+
+    .wrap {
+      max-width: 1080px;
+      margin: 0 auto;
+      padding: 48px 28px 80px;
+      display: grid;
+      grid-template-columns: 280px 1fr;
+      gap: 56px;
+    }
+
+    aside {
+      position: sticky;
+      top: 36px;
+      align-self: start;
+    }
+
+    .portrait {
+      width: 168px;
+      height: 168px;
+      object-fit: cover;
+      border-radius: 4px;
+      filter: grayscale(18%) contrast(1.04);
+      box-shadow: 0 10px 30px rgba(30, 42, 35, 0.12);
+    }
+
+    h1 {
+      font-family: "Cormorant Garamond", "Noto Serif SC", serif;
+      font-weight: 600;
+      font-size: 42px;
+      letter-spacing: 0.01em;
+      line-height: 1.1;
+      margin: 22px 0 8px;
+    }
+
+    .role {
+      color: var(--muted);
+      margin: 0 0 18px;
+      font-size: 15.5px;
+    }
+
+    .links {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      font-family: "IBM Plex Sans", sans-serif;
+      font-size: 13.5px;
+    }
+
+    .links a { color: var(--ink); text-decoration: none; }
+    .links a:hover { color: var(--moss); }
+
+    .lang {
+      margin-top: 22px;
+      display: inline-flex;
+      border: 1px solid var(--rule);
+      border-radius: 999px;
+      overflow: hidden;
+      font-family: "IBM Plex Sans", sans-serif;
+      font-size: 12px;
+    }
+
+    .lang button {
+      border: 0;
+      background: transparent;
+      padding: 6px 12px;
+      cursor: pointer;
+      color: var(--muted);
+    }
+
+    .lang button.active {
+      background: var(--ink);
+      color: var(--paper);
+    }
+
+    h2 {
+      font-family: "Cormorant Garamond", "Noto Serif SC", serif;
+      font-size: 28px;
+      font-weight: 600;
+      margin: 0 0 16px;
+      letter-spacing: 0.02em;
+    }
+
+    section + section { margin-top: 44px; }
+
+    .about p { margin: 0 0 12px; max-width: 62ch; }
+
+    .year {
+      font-family: "IBM Plex Sans", sans-serif;
+      font-size: 13px;
+      font-weight: 500;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--moss);
+      margin: 28px 0 10px;
+      padding-bottom: 6px;
+      border-bottom: 1px solid var(--rule);
+    }
+
+    .year:first-of-type { margin-top: 8px; }
+
+    .pub {
+      padding: 14px 0;
+      border-bottom: 1px dashed var(--rule);
+    }
+
+    .pub .title {
+      font-weight: 600;
+      font-size: 16.5px;
+      line-height: 1.4;
+      margin: 0 0 6px;
+    }
+
+    .pub .meta, .pub .authors {
+      font-size: 14.5px;
+      color: var(--muted);
+    }
+
+    .pub .authors strong { color: var(--ink); font-weight: 600; }
+
+    .venue {
+      display: inline-block;
+      font-family: "IBM Plex Sans", sans-serif;
+      font-size: 11.5px;
+      font-weight: 500;
+      letter-spacing: 0.04em;
+      background: var(--chip);
+      color: var(--ink);
+      padding: 2px 8px;
+      border-radius: 3px;
+      margin-right: 8px;
+    }
+
+    .actions {
+      margin-top: 8px;
+      font-family: "IBM Plex Sans", sans-serif;
+      font-size: 12.5px;
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .actions a { color: var(--moss); text-decoration: none; }
+    .actions a:hover { text-decoration: underline; }
+
+    .note {
+      margin-top: 22px;
+      font-size: 13.5px;
+      color: var(--muted);
+    }
+
+    footer {
+      margin-top: 56px;
+      padding-top: 16px;
+      border-top: 1px solid var(--rule);
+      font-family: "IBM Plex Sans", sans-serif;
+      font-size: 12.5px;
+      color: var(--muted);
+    }
+
+    [data-lang="en"] .zh, [data-lang="zh"] .en { display: none; }
+
+    @media (max-width: 860px) {
+      .wrap {
+        grid-template-columns: 1fr;
+        gap: 28px;
+        padding: 28px 18px 56px;
+      }
+      aside { position: static; }
+      h1 { font-size: 36px; }
+    }
+  </style>
+</head>
+<body data-lang="zh">
+  <div class="wrap">
+    <aside>
+      <img class="portrait" src="assets/avatar.jpg" alt="Portrait of Duanchu Wang" />
+      <h1>Duanchu Wang</h1>
+      <p class="role">
+        <span class="zh">博士生 · 西安交通大学</span>
+        <span class="en">Ph.D. Student · Xi'an Jiaotong University</span>
+      </p>
+      <nav class="links">
+        <a href="mailto:wangduanchu@stu.xjtu.edu.cn">wangduanchu@stu.xjtu.edu.cn</a>
+        <a href="https://scholar.google.com/citations?user=9dgrkS0AAAAJ&hl=zh-CN">Google Scholar</a>
+        <a href="https://github.com/DuanchuWang">GitHub</a>
+        <a href="https://orcid.org/0009-0009-1470-4555">ORCID</a>
+        <a href="https://www.csauthors.net/duanchu-wang/">DBLP / CSAuthors</a>
+      </nav>
+      <div class="lang" role="group" aria-label="Language">
+        <button type="button" data-set="zh" class="active">中文</button>
+        <button type="button" data-set="en">EN</button>
+      </div>
+    </aside>
+
+    <main>
+      <section class="about" id="about">
+        <h2>
+          <span class="zh">简介</span>
+          <span class="en">About</span>
+        </h2>
+        <p class="zh">
+          我是西安交通大学博士生，研究方向为三维视觉与空间智能，包括点云理解、三维实例分割，以及基于激光雷达的精细森林结构分析。求学路径为武汉科技大学 → 西安电子科技大学 → 西安交通大学。
+        </p>
+        <p class="en">
+          I am a Ph.D. student at Xi'an Jiaotong University. My research focuses on 3D vision and spatial intelligence, including point cloud understanding, 3D instance segmentation, and fine-grained forest structure analysis from LiDAR. I previously studied at Wuhan University of Science and Technology and Xidian University.
+        </p>
+      </section>
+
+      <section id="publications">
+        <h2>
+          <span class="zh">论文</span>
+          <span class="en">Publications</span>
+        </h2>
+
+        <div class="year">2026</div>
+
+        <article class="pub">
+          <p class="title">PointQ-Bench: Benchmarking Diagnostic and Interpretable Point Cloud Quality Assessment</p>
+          <p class="authors"><strong>Duanchu Wang</strong>*, Cheng Li*, Junjie Yang, Jing Huang, Zihang Cheng, Zhi Gao, Bohong Zhu, Di Wang</p>
+          <p class="meta"><span class="venue">arXiv</span><span class="zh">预印本</span><span class="en">preprint</span></p>
+          <p class="actions">
+            <a href="https://arxiv.org/abs/2605.28241">arXiv</a>
+            <a href="https://arxiv.org/pdf/2605.28241">PDF</a>
+          </p>
+        </article>
+
+        <article class="pub">
+          <p class="title">VertiCue-Bench: Diagnosing Whether MLLMs Use Height Cues to Resolve 2D Ambiguity in Remote Sensing Natural Scenes</p>
+          <p class="authors">Jing Huang*, <strong>Duanchu Wang</strong>*, Junjie Yang, Zihang Cheng, Cheng Li, Lin Cui, Zhouyi Wu, Di Wang</p>
+          <p class="meta"><span class="venue">arXiv</span><span class="zh">预印本</span><span class="en">preprint</span></p>
+          <p class="actions">
+            <a href="https://arxiv.org/abs/2605.25784">arXiv</a>
+            <a href="https://arxiv.org/pdf/2605.25784">PDF</a>
+          </p>
+        </article>
+
+        <article class="pub">
+          <p class="title">ForestHG-Trace: Traceable Long-Horizon Ecological Reasoning over Large-Scale Forest Scenes</p>
+          <p class="authors">Zihan Cheng, <strong>Duanchu Wang</strong>, Cheng Li, Jing Huang, Huanzhao Fu, Di Wang</p>
+          <p class="meta"><span class="venue">arXiv</span><span class="zh">预印本</span><span class="en">preprint</span></p>
+          <p class="actions">
+            <a href="https://arxiv.org/abs/2605.27590">arXiv</a>
+            <a href="https://arxiv.org/pdf/2605.27590">PDF</a>
+          </p>
+        </article>
+
+        <div class="year">2025</div>
+
+        <article class="pub">
+          <p class="title">Enhancing 3D Instance Segmentation with Dense Connection Decoder and Layer-Aware Fusion</p>
+          <p class="authors"><strong>Duanchu Wang</strong>, Haoran Gong, Di Wang</p>
+          <p class="meta"><span class="venue">IEEE RA-L</span>IEEE Robotics and Automation Letters</p>
+          <p class="actions">
+            <a href="https://doi.org/10.1109/LRA.2025.3600142">DOI</a>
+            <a href="https://github.com/DuanchuWang/Enhancing-3D-Instance-Segmentation-with-Dense-Connection-Decoder-and-Layer-Aware-Fusion">Code</a>
+          </p>
+        </article>
+
+        <article class="pub">
+          <p class="title">Optimizing Label Efficiency for Learning-Based Leaf–Wood Separation in Tree Point Clouds</p>
+          <p class="authors"><strong>Duanchu Wang</strong>, Kaijie Xu, Di Wang</p>
+          <p class="meta"><span class="venue">IEEE TGRS</span>IEEE Transactions on Geoscience and Remote Sensing</p>
+          <p class="actions">
+            <a href="https://doi.org/10.1109/TGRS.2025.3632346">DOI</a>
+            <a href="https://github.com/DuanchuWang/PCLNet">Code</a>
+          </p>
+        </article>
+
+        <article class="pub">
+          <p class="title">Advancing the Understanding of Fine-Grained 3D Forest Structures using Digital Cousins and Simulation-to-Reality: Methods and Datasets</p>
+          <p class="authors">Jing Liu, <strong>Duanchu Wang</strong>, Haoran Gong, Chongyu Wang, Jihua Zhu, Di Wang</p>
+          <p class="meta"><span class="venue">arXiv</span><span class="zh">预印本</span><span class="en">preprint</span></p>
+          <p class="actions">
+            <a href="https://arxiv.org/abs/2501.03637">arXiv</a>
+            <a href="https://arxiv.org/pdf/2501.03637">PDF</a>
+            <a href="https://boreal3d.github.io/">Dataset</a>
+          </p>
+        </article>
+
+        <article class="pub">
+          <p class="title">Grounded Chest X-Ray Reasoning: Leveraging Visual Tools to Improve Medical Multimodal LLMs</p>
+          <p class="authors"><strong>Duanchu Wang</strong>, Peng Xia, Huaxiu Yao</p>
+          <p class="meta"><span class="venue">ICDMW</span>IEEE International Conference on Data Mining Workshops</p>
+          <p class="actions">
+            <a href="https://doi.org/10.1109/ICDMW69685.2025.00391">DOI</a>
+          </p>
+        </article>
+
+        <div class="year">2024</div>
+
+        <article class="pub">
+          <p class="title">CompetitorFormer: Competitor Transformer for 3D Instance Segmentation</p>
+          <p class="authors"><strong>Duanchu Wang</strong>, Jing Liu, Haoran Gong, Yinghui Quan, Di Wang</p>
+          <p class="meta"><span class="venue">arXiv</span><span class="zh">预印本</span><span class="en">preprint</span></p>
+          <p class="actions">
+            <a href="https://arxiv.org/abs/2411.14179">arXiv</a>
+            <a href="https://arxiv.org/pdf/2411.14179">PDF</a>
+            <a href="https://github.com/DuanchuWang/CompetitorFormer">Code</a>
+          </p>
+        </article>
+
+        <article class="pub">
+          <p class="title">Towards the Digital Twin of Urban Forest: 3D Modeling and Parameterization of Large-Scale Urban Trees from Close-Range Laser Scanning</p>
+          <p class="authors">Chen Chen, Haodong Wang, <strong>Duanchu Wang</strong>, Di Wang</p>
+          <p class="meta"><span class="venue">JAG</span>International Journal of Applied Earth Observation and Geoinformation</p>
+          <p class="actions">
+            <a href="https://doi.org/10.1016/j.jag.2024.103695">DOI</a>
+          </p>
+        </article>
+
+        <article class="pub">
+          <p class="title">Gas Source Localization using Dueling Deep Q-Network with an Olfactory Quadruped Robot</p>
+          <p class="authors">Yu He, Lei Cheng, YaDuo Pan, <strong>Duanchu Wang</strong>, YuAo Li, Han Zheng</p>
+          <p class="meta"><span class="venue">IJARS</span>International Journal of Advanced Robotic Systems</p>
+          <p class="actions">
+            <a href="https://doi.org/10.1177/17298806241255797">DOI</a>
+          </p>
+        </article>
+
+        <div class="year">2023</div>
+
+        <article class="pub">
+          <p class="title">Multi-sensory Olfactory Quadruped Robot for Odor Source Localization</p>
+          <p class="authors">Yu He, Lei Cheng, YaDuo Pan, YuAo Li, <strong>Duanchu Wang</strong>, Han Zheng</p>
+          <p class="meta"><span class="venue">IEEE CBS</span>IEEE International Conference on Cyborg and Bionic Systems</p>
+          <p class="actions">
+            <a href="https://doi.org/10.1109/CBS55922.2023.10115389">DOI</a>
+          </p>
+        </article>
+
+        <article class="pub">
+          <p class="title">An Active Pursuit Strategy for Autonomous Mobile Robots based on Deep Reinforcement Learning</p>
+          <p class="authors">Yingnan Gao, Lei Cheng, Yu He, <strong>Duanchu Wang</strong></p>
+          <p class="meta"><span class="venue">IEEE CBS</span>IEEE International Conference on Cyborg and Bionic Systems</p>
+          <p class="actions">
+            <a href="https://doi.org/10.1109/CBS55922.2023.10115383">DOI</a>
+          </p>
+        </article>
+
+        <p class="note">
+          <span class="zh">* 表示共同一作。姓名加粗为本人。论文条目根据 Google 学术、DBLP 与公开预印本整理，如有遗漏请告诉我。</span>
+          <span class="en">* Equal contribution. My name is in bold. Compiled from Google Scholar, DBLP, and public preprints.</span>
+        </p>
+      </section>
+
+      <footer>
+        <span class="zh">© Duanchu Wang · 页面托管于 GitHub Pages</span>
+        <span class="en">© Duanchu Wang · Hosted on GitHub Pages</span>
+      </footer>
+    </main>
+  </div>
+
+  <script>
+    const root = document.body;
+    const buttons = document.querySelectorAll(".lang button");
+    const saved = localStorage.getItem("lang");
+    if (saved === "en" || saved === "zh") setLang(saved);
+
+    buttons.forEach((btn) => {
+      btn.addEventListener("click", () => setLang(btn.dataset.set));
+    });
+
+    function setLang(lang) {
+      root.dataset.lang = lang;
+      document.documentElement.lang = lang === "zh" ? "zh-CN" : "en";
+      localStorage.setItem("lang", lang);
+      buttons.forEach((btn) => btn.classList.toggle("active", btn.dataset.set === lang));
+    }
+  </script>
+</body>
+</html>
