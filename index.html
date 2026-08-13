@@ -13,15 +13,13 @@
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&family=Noto+Serif+SC:wght@400;600&family=IBM+Plex+Sans:wght@400;500&display=swap" rel="stylesheet" />
   <style>
     :root {
-      --paper: #f4efe4;
-      --paper-2: #ebe4d4;
-      --ink: #1e2a23;
-      --muted: #5b675f;
-      --moss: #2f5a42;
-      --moss-soft: #3f6e52;
-      --rule: #d4cbb8;
-      --chip: #e7dfcf;
-      --first: #8a4b1f;
+      --paper: #f3eee4;
+      --ink: #1c241f;
+      --muted: #5c675f;
+      --moss: #2c5340;
+      --moss-soft: #3d6a50;
+      --rule: #d5ccba;
+      --chip: #e6dfd0;
     }
 
     * { box-sizing: border-box; }
@@ -30,80 +28,157 @@
       margin: 0;
       color: var(--ink);
       background:
-        radial-gradient(1200px 500px at 10% -10%, #efe8d8 0%, transparent 55%),
+        linear-gradient(180deg, #e7efe6 0, transparent 140px),
         var(--paper);
       font-family: "Source Serif 4", "Noto Serif SC", serif;
       font-size: 17px;
       line-height: 1.65;
     }
 
+    body::before {
+      content: "";
+      display: block;
+      height: 3px;
+      background: var(--moss);
+    }
+
     a { color: var(--moss); text-decoration-thickness: 1px; text-underline-offset: 3px; }
     a:hover { color: var(--moss-soft); }
 
     .wrap {
-      max-width: 1080px;
+      max-width: 920px;
       margin: 0 auto;
-      padding: 48px 28px 80px;
-      display: grid;
-      grid-template-columns: 280px 1fr;
-      gap: 56px;
+      padding: 52px 32px 96px;
     }
 
-    aside {
-      position: sticky;
-      top: 36px;
-      align-self: start;
+    .masthead {
+      display: grid;
+      grid-template-columns: 210px 1fr;
+      gap: 52px;
+      align-items: start;
+      padding-bottom: 44px;
+      margin-bottom: 48px;
+      border-bottom: 1px solid var(--rule);
+    }
+
+    .portrait-frame {
+      position: relative;
+      width: 196px;
+    }
+
+    .portrait-frame::after {
+      content: "";
+      position: absolute;
+      inset: 14px -12px -12px 14px;
+      border: 1px solid var(--moss);
+      opacity: 0.28;
+      pointer-events: none;
     }
 
     .portrait {
-      width: 168px;
-      height: 168px;
+      position: relative;
+      z-index: 1;
+      display: block;
+      width: 196px;
+      height: 236px;
       object-fit: cover;
-      border-radius: 4px;
-      filter: grayscale(18%) contrast(1.04);
-      box-shadow: 0 10px 30px rgba(30, 42, 35, 0.12);
+      object-position: center 16%;
+      background: #111;
+    }
+
+    .mast-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 16px;
     }
 
     h1 {
       font-family: "Cormorant Garamond", "Noto Serif SC", serif;
       font-weight: 600;
-      font-size: 42px;
-      letter-spacing: 0.01em;
-      line-height: 1.1;
-      margin: 22px 0 8px;
+      font-size: 46px;
+      letter-spacing: -0.02em;
+      line-height: 0.95;
+      margin: 4px 0 0;
+    }
+
+    .cjk {
+      margin: 10px 0 0;
+      font-family: "Noto Serif SC", serif;
+      font-size: 14px;
+      letter-spacing: 0.42em;
+      color: var(--muted);
     }
 
     .role {
-      color: var(--muted);
-      margin: 0 0 18px;
-      font-size: 15.5px;
+      margin: 16px 0 0;
+      font-family: "IBM Plex Sans", sans-serif;
+      font-size: 11.5px;
+      font-weight: 500;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--moss);
+    }
+
+    .lead {
+      margin: 22px 0 0;
+      max-width: 46em;
+      font-size: 17.5px;
+      line-height: 1.72;
+    }
+
+    .lead a { color: inherit; text-decoration-color: var(--rule); }
+    .lead a:hover { color: var(--moss); text-decoration-color: var(--moss); }
+
+    .topics-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 22px;
+    }
+
+    .topic {
+      font-family: "IBM Plex Sans", sans-serif;
+      font-size: 11.5px;
+      letter-spacing: 0.04em;
+      color: var(--ink);
+      border: 1px solid var(--rule);
+      padding: 5px 11px;
+      background: rgba(255, 255, 255, 0.28);
     }
 
     .links {
       display: flex;
-      flex-direction: column;
-      gap: 6px;
+      flex-wrap: wrap;
+      margin-top: 22px;
       font-family: "IBM Plex Sans", sans-serif;
-      font-size: 13.5px;
+      font-size: 12.5px;
     }
 
-    .links a { color: var(--ink); text-decoration: none; }
+    .links a {
+      color: var(--muted);
+      text-decoration: none;
+      padding-right: 14px;
+      margin-right: 14px;
+      border-right: 1px solid var(--rule);
+    }
+
+    .links a:last-child { border-right: 0; margin-right: 0; padding-right: 0; }
     .links a:hover { color: var(--moss); }
 
     .lang {
-      margin-top: 22px;
       display: inline-flex;
+      flex-shrink: 0;
       border: 1px solid var(--rule);
-      border-radius: 999px;
-      overflow: hidden;
       font-family: "IBM Plex Sans", sans-serif;
-      font-size: 12px;
+      font-size: 11px;
+      letter-spacing: 0.08em;
     }
 
     .lang button {
       border: 0;
       background: transparent;
-      padding: 6px 12px;
+      padding: 5px 10px;
       cursor: pointer;
       color: var(--muted);
     }
@@ -113,35 +188,44 @@
       color: var(--paper);
     }
 
-    h2 {
-      font-family: "Cormorant Garamond", "Noto Serif SC", serif;
-      font-size: 28px;
-      font-weight: 600;
-      margin: 0 0 16px;
-      letter-spacing: 0.02em;
-    }
-
-    section + section { margin-top: 44px; }
-
-    .about p { margin: 0 0 12px; max-width: 62ch; }
-
     .nav-sec {
-      margin-top: 22px;
       display: flex;
-      flex-direction: column;
-      gap: 5px;
+      flex-wrap: wrap;
+      gap: 18px;
+      margin: -28px 0 44px;
       font-family: "IBM Plex Sans", sans-serif;
-      font-size: 13px;
+      font-size: 12.5px;
+      letter-spacing: 0.06em;
     }
 
     .nav-sec a { color: var(--muted); text-decoration: none; }
     .nav-sec a:hover { color: var(--moss); }
 
+    h2 {
+      font-family: "Cormorant Garamond", "Noto Serif SC", serif;
+      font-size: 22px;
+      font-weight: 600;
+      margin: 0 0 16px;
+      letter-spacing: 0.04em;
+    }
+
+    h2::before {
+      content: "";
+      display: inline-block;
+      width: 7px;
+      height: 7px;
+      margin-right: 10px;
+      background: var(--moss);
+      vertical-align: 2px;
+      opacity: 0.75;
+    }
+
+    section + section { margin-top: 44px; }
+
     .plain-list {
       list-style: none;
       padding: 0;
       margin: 0;
-      max-width: 68ch;
     }
 
     .plain-list li {
@@ -150,8 +234,6 @@
     }
 
     .plain-list li:last-child { border-bottom: 0; }
-
-    .topics li { padding: 7px 0; }
 
     .when {
       font-family: "IBM Plex Sans", sans-serif;
@@ -252,77 +334,70 @@
 
     [data-lang="en"] .zh, [data-lang="zh"] .en { display: none; }
 
-    @media (max-width: 860px) {
-      .wrap {
+    @media (max-width: 760px) {
+      .wrap { padding: 32px 20px 64px; }
+      .masthead {
         grid-template-columns: 1fr;
         gap: 28px;
-        padding: 28px 18px 56px;
+        padding-bottom: 32px;
+        margin-bottom: 36px;
       }
-      aside { position: static; }
-      h1 { font-size: 36px; }
+      h1 { font-size: 38px; }
+      .portrait-frame, .portrait { width: 168px; }
+      .portrait { height: 202px; }
     }
   </style>
 </head>
 <body data-lang="en">
   <div class="wrap">
-    <aside>
-      <img class="portrait" src="assets/avatar.jpg" alt="Portrait of Duanchu Wang" />
-      <h1>Duanchu Wang</h1>
-      <p class="role">
-        <span class="zh">博士研究生 · 西安交通大学</span>
-        <span class="en">Ph.D. Student · Xi'an Jiaotong University</span>
-      </p>
-      <nav class="links">
-        <a href="mailto:wangduanchu@stu.xjtu.edu.cn">wangduanchu@stu.xjtu.edu.cn</a>
-        <a href="https://scholar.google.com/citations?user=9dgrkS0AAAAJ&hl=en">Google Scholar</a>
-        <a href="https://github.com/DuanchuWang">GitHub</a>
-        <a href="https://orcid.org/0009-0009-1470-4555">ORCID</a>
-        <a href="https://www.csauthors.net/duanchu-wang/">DBLP / CSAuthors</a>
-      </nav>
-      <div class="lang" role="group" aria-label="Language">
-        <button type="button" data-set="zh">中文</button>
-        <button type="button" data-set="en" class="active">EN</button>
+    <header class="masthead">
+      <div class="portrait-frame">
+        <img class="portrait" src="assets/avatar.jpg" alt="Portrait of Duanchu Wang" />
       </div>
-      <nav class="nav-sec" aria-label="Sections">
-        <a href="#about"><span class="zh">简介</span><span class="en">About</span></a>
-        <a href="#research"><span class="zh">研究方向</span><span class="en">Research</span></a>
-        <a href="#news"><span class="zh">动态</span><span class="en">News</span></a>
-        <a href="#education"><span class="zh">教育经历</span><span class="en">Education</span></a>
-        <a href="#publications"><span class="zh">论文</span><span class="en">Publications</span></a>
-      </nav>
-    </aside>
-
-    <main>
-      <section class="about" id="about">
-        <h2>
-          <span class="zh">简介</span>
-          <span class="en">About</span>
-        </h2>
-        <p class="zh">
+      <div>
+        <div class="mast-top">
+          <div>
+            <h1>Duanchu Wang</h1>
+            <p class="cjk">王端初</p>
+          </div>
+          <div class="lang" role="group" aria-label="Language">
+            <button type="button" data-set="zh">中文</button>
+            <button type="button" data-set="en" class="active">EN</button>
+          </div>
+        </div>
+        <p class="role">
+          <span class="zh">博士研究生 · 西安交通大学</span>
+          <span class="en">Ph.D. Student · Xi'an Jiaotong University</span>
+        </p>
+        <p class="lead zh">
           我是<a href="https://www.xjtu.edu.cn/">西安交通大学</a>博士研究生。研究方向为三维视觉与空间智能，主要包括点云理解、三维实例分割，以及基于激光雷达的精细森林结构分析。
         </p>
-        <p class="en">
+        <p class="lead en">
           I am a Ph.D. student at <a href="https://www.xjtu.edu.cn/">Xi'an Jiaotong University</a>. My research interests lie in 3D vision and spatial intelligence, with a particular focus on point cloud understanding, 3D instance segmentation, and LiDAR-based analysis of fine-grained forest structure.
         </p>
-      </section>
+        <div class="topics-row">
+          <span class="topic"><span class="zh">三维视觉</span><span class="en">3D Vision</span></span>
+          <span class="topic"><span class="zh">点云理解</span><span class="en">Point Clouds</span></span>
+          <span class="topic"><span class="zh">三维实例分割</span><span class="en">Instance Segmentation</span></span>
+          <span class="topic"><span class="zh">森林激光雷达</span><span class="en">Forest LiDAR</span></span>
+        </div>
+        <nav class="links">
+          <a href="mailto:wangduanchu@stu.xjtu.edu.cn">Email</a>
+          <a href="https://scholar.google.com/citations?user=9dgrkS0AAAAJ&hl=en">Scholar</a>
+          <a href="https://github.com/DuanchuWang">GitHub</a>
+          <a href="https://orcid.org/0009-0009-1470-4555">ORCID</a>
+          <a href="https://www.csauthors.net/duanchu-wang/">DBLP</a>
+        </nav>
+      </div>
+    </header>
 
-      <section id="research">
-        <h2>
-          <span class="zh">研究方向</span>
-          <span class="en">Research Topics</span>
-        </h2>
-        <ul class="plain-list topics">
-          <li>
-            <span class="zh"><strong>三维视觉：</strong>点云理解、三维实例分割</span>
-            <span class="en"><strong>3D Vision:</strong> Point Cloud Understanding, 3D Instance Segmentation</span>
-          </li>
-          <li>
-            <span class="zh"><strong>空间智能：</strong>基于激光雷达的精细森林结构分析</span>
-            <span class="en"><strong>Spatial Intelligence:</strong> LiDAR-based Fine-grained Forest Structure Analysis</span>
-          </li>
-        </ul>
-      </section>
+    <nav class="nav-sec" aria-label="Sections">
+      <a href="#news"><span class="zh">动态</span><span class="en">News</span></a>
+      <a href="#education"><span class="zh">教育经历</span><span class="en">Education</span></a>
+      <a href="#publications"><span class="zh">论文</span><span class="en">Publications</span></a>
+    </nav>
 
+    <main>
       <section id="news">
         <h2>
           <span class="zh">动态</span>
